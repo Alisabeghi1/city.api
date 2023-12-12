@@ -8,10 +8,13 @@ namespace city.api.Controllers
     public class CitiesController : ControllerBase
     {
         [HttpGet]
-        public ActionResult<IEnumerable <CityDto>> GetCities()
+        public ActionResult GetCities()
 
         {
-            return Ok(CitiesDataStore.current.Cities);
+            var result = CitiesDataStore.current?.Cities.ToList();
+
+
+            return Ok(result);
         }
 
         [HttpGet("{id}")]

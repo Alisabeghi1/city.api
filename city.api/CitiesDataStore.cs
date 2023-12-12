@@ -12,15 +12,15 @@
             {
                 new CityDto() { Id = 1,Name="Tehran",
                 Description="This is The Central City."
-                ,PointsOfInterest=new List<PointsOfInterestDto>()
+                ,PointsOfInterest=new List<PointOfInterestDto>()
                 {
-                    new PointsOfInterestDto()
+                    new PointOfInterestDto()
                     {
                         Id=1,
                         Name="Palace 1",
                         Description="This is Palace 1 "
                     },
-                    new PointsOfInterestDto ()
+                    new PointOfInterestDto ()
                     {
                         Id = 2,
                         Name = "palace 2",
@@ -31,15 +31,15 @@
                 },
                 new CityDto() { Id = 2,Name="Esfahan",
                 Description="This is The Half of world City."
-                ,PointsOfInterest=new List<PointsOfInterestDto>()
+                ,PointsOfInterest=new List<PointOfInterestDto>()
                 {
-                    new PointsOfInterestDto()
+                    new PointOfInterestDto()
                     {
                         Id=3,
                         Name="Palace 3",
                         Description="This is Palace 3 "
                     },
-                    new PointsOfInterestDto ()
+                    new PointOfInterestDto ()
                     {
                         Id = 4,
                         Name = "palace 4",
@@ -49,15 +49,15 @@
                 },
                 new CityDto() { Id = 3,Name="Bandar Abas",
                 Description="This is The Southest City."
-                ,PointsOfInterest=new List<PointsOfInterestDto>()
+                ,PointsOfInterest=new List<PointOfInterestDto>()
                 {
-                    new PointsOfInterestDto()
+                    new PointOfInterestDto()
                     {
                         Id=5,
                         Name="Palace 5",
                         Description="This is Palace 5 "
                     },
-                    new PointsOfInterestDto ()
+                    new PointOfInterestDto ()
                     {
                         Id = 6,
                         Name = "palace 6",
