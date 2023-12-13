@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace city.api.Controllers
 {
-    
+
+    [Route("api/cities/{cityId}/pointsofinterest")]
     [ApiController]
-    [Route("[controller]/[action]")]
     public class PointsOfInterestController : ControllerBase
     {
-        [HttpGet("PointTo/{cityId}")]
+        [HttpGet]
         public ActionResult<IEnumerable<PointOfInterestDto>>
             GetPointsOfiterest(int cityId)
         {
@@ -25,8 +25,7 @@ namespace city.api.Controllers
 
         }
 
-
-        [HttpGet("{pointofinterestId}", Name = "GetPointOfInterest")]
+        [HttpGet("{pointOfInterestId}", Name = "GetPointOfInterest")]
         public ActionResult<PointOfInterestDto>
             GetPointOfInterest(int cityId, int pointofinterestId)
         {
@@ -47,6 +46,9 @@ namespace city.api.Controllers
             return Ok(point);
         }
 
+        #region POST
+
+
         [HttpPost]
 
         public ActionResult<PointOfInterestDto> CreatePointOfInterest(
@@ -54,6 +56,12 @@ namespace city.api.Controllers
             PointOfInterestForCreationDto pointOfInterest
             )
         {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             var city = CitiesDataStore.current.Cities
                 .FirstOrDefault(c => c.Id == cityId);
             if (city == null)
@@ -79,6 +87,32 @@ namespace city.api.Controllers
                 },
                 createPoint
                 );
+
         }
+        #endregion
+
+
+        #region EDIT
+
+        [HttpPut("{pointofinterestId}")]
+
+        public ActionResult UpdatePointOfinterest(
+            int cityId, int pointofinterestId
+            ,PointOfInterestForUpdateDto pointOfInterest)
+        {
+            var city = CitiesDataStore.current.Cities.
+                FirstOrDefault(c => c.Id == cityId);
+            if (city == null)
+                return NotFound();
+            var point = city.PointsOfInterest.FirstOrDefault(p => p.Id == pointofinterestId);
+            if (point == null) { return NotFound();}
+
+            point.Name = pointOfInterest.Name;
+            point.Description = pointOfInterest.Description;
+            return NoContent(); 
+            
+        }
+        #endregion
+
     }
 }

@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace city.api.Controllers
 {
-    [ApiController]
     [Route("api/Cities")]
+    [ApiController]
     public class CitiesController : ControllerBase
     {
         [HttpGet]

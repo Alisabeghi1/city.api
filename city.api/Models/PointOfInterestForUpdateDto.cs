@@ -1,8 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;    
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace city.api.Models
 {
-    public class PointOfInterestForCreationDto
+    public class PointOfInterestForUpdateDto
     {
         [Required(ErrorMessage = "Enter Name !!!")]
         [MaxLength(50)]
